@@ -208,9 +208,26 @@ int negate(int x) {
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 15
  *   Rating: 3
+ *  
+ *  0011 0000 ->0 ->1 ->2
+ *  0011 0001 ->1 ->0 ->3
+ *  0011 0010 ->2 ->3 ->0
+ *  0011 0011 ->3 ->2 ->1
+ *  0011 0100 ->4 ->5 ->5
+ * 
  */
 int isAsciiDigit(int x) {
-  return 0;
+  int zero = x^48; 
+  int one = x^49; 
+  int two = x^50; 
+  int three = x^51; 
+  int four = x^52; 
+  int five = x^53; 
+  int six = x^54; 
+  int seven = x^55; 
+  int eight = x^56; 
+  int night = x^57; 
+  return !((45)^(x+zero+one+two+three+four+five+six+seven+eight+night));
 }
 /* 
  * conditional - same as x ? y : z 
