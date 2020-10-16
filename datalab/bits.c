@@ -251,7 +251,7 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 4 
  */
 int logicalNeg(int x) {
-  return 2;
+  return (((~x + 1)|x)>>31) + 1;
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
@@ -281,6 +281,17 @@ int howManyBits(int x) {
  *   Rating: 4
  */
 unsigned floatScale2(unsigned uf) {
+  int exp = 0xf << 22;
+  if(!(uf ^ exp)){
+    return uf;
+  }
+  //规格化
+  
+  //非规格化
+
+
+
+
   return 2;
 }
 /* 
