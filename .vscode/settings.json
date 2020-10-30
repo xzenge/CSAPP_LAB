@@ -3,6 +3,12 @@
         "*.cjson": "jsonc",
         "*.wxss": "css",
         "*.wxs": "javascript",
-        "chrono": "c"
+        "chrono": "c",
+        "cstdlib": "c",
+        "locale": "c",
+        "ostream": "c",
+        "new": "c",
+        "__locale": "c",
+        "algorithm": "c"
     }
 }
