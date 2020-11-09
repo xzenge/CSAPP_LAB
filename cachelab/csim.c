@@ -5,8 +5,9 @@
 #include <stdlib.h>
 
 struct cache_line{ 
-    unsigned int valid;
-
+    int valid;
+    int tag;
+    int B[];
 };
 
 // ./csim -s 1 -E 1 -b 1 -t traces/yi2.trace
@@ -39,12 +40,12 @@ int main(int argc, char **argv)
     printf("s=%d E=%d b=%d t=%s \n",s,E,b,t);
 
     //malloc 
-    int S=1;
-    for(int i = 0;i < s;i++){
-        S*=2;
+    int S = pow(2,s);
+    struct cache_line **cl;
+    cl = (struct cache_line **)malloc(S * sizeof(struct cache_line));
+    for(int i = 0 ;i<S;i++){
+        cl[i] = (struct cache_line *)malloc(E * sizeof(struct cache_line));
     }
-    struct cache_line *cl;
-    cl = (struct cache_line *)malloc(S * E * sizeof(struct cache_line));
 
     //read file
     FILE *pFile;
